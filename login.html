@@ -1,214 +1,74 @@
-<!doctype html>
-<html lang="en">
-
-<head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="./css/bootstrap.min.css">
-  <link rel="stylesheet" href="./css/base.css">
-  <script src="./js/bootstrap.bundle.js"></script>
-  <script src="./js/bootstrap.min.js"></script>
-  <script src="./js/chart.js"></script>
-  <script src="./js/base.js"></script>
-
-  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
-    integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
-    crossorigin="anonymous"></script>
-  <script src="./js/angular.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
-
-  <title>ASM WEB 2</title>
-</head>
-
 <body>
-
-  <div class="app " >
-    <!-- START - NAV -->
-    <nav class="shadow fixed-top navbar navbar-light bg-light row"  >
-      <div class="col-6 nav_item-logo d-flex align-items-center px-3">
-        <button class="btn" data-bs-toggle="offcanvas" data-bs-target="sidebar"><i
-            class="fas fa-list text-dark"></i></button>
-        <a href="#" class="navbar-brand fw-bold text-dark mx-4">
-          <img class="mb-1 " src="./images/bee_512.png" alt="Logo" width="30" height="24">
-          BemmTeam
-        </a>
-
-        <div class="input-group input-search mx-2">
-          <input type="text" class="form-control" placeholder="Nhập môn cần tìm" aria-label="Recipient's username" \>
-          <button class="btn btn-secondary" type="button"><i class="fas fa-search"></i></button>
-        </div>
-      </div>
-      <!-- item nav - action 2 -->
-      <div class="col-6 nav_item-action d-flex align-items-center justify-content-end ">
-        <button type="button" class="btn text-dark hover-text">Đăng nhập</button>
-        <button type="button" class="btn text-dark hover-text">Đăng Ký</button>
-      </div>
-    </nav>
-    <!-- END - NAV -->
-
-    <main class="color-body body row bg-danger" style="--bs-gutter-x: 0 ;height: 100vh;"  >
-      <!-- START - SIDEBAR -->
-
-      <div class="col navfixed">
-        <div class="">
-          <ul id="sidebar" class="shadow-lg nav bg-dark flex-column justify-content-between">
-            <div>
-              <h5 class="text-primary text-center mt-2"><i class="fas fa-book"></i> Danh mục môn học</h5>
-              <hr>
-
-              <li class="nav-item mt-2">
-                <a class="nav-link text-light active" href="#"><i class="fas fa-stroopwafel"></i> Cơ sở dữ liệu sql</a>
-
-              </li>
-              <li class="nav-item mt-2">
-                <a class="nav-link text-light " href="#"><i class="fas fa-stroopwafel"></i> Cơ sở dữ liệu sql</a>
-              </li>
-              <li class="nav-item mt-2">
-                <a class="nav-link text-light " href="#"><i class="fas fa-stroopwafel"></i> Cơ sở dữ liệu sql</a>
-              </li>
-              <li class="nav-item mt-2">
-                <a class="nav-link text-light " href="#"><i class="fas fa-stroopwafel"></i> Cơ sở dữ liệu sql</a>
-              </li>
-              <li class="nav-item mt-2">
-                <a class="nav-link text-light " href="#"><i class="fas fa-stroopwafel"></i> Cơ sở dữ liệu sql</a>
-              </li>
-              <li class="nav-item mt-2">
-                <a class="nav-link text-light " href="#"><i class="fas fa-stroopwafel"></i> Cơ sở dữ liệu sql</a>
-              </li>
-              <li class="nav-item mt-2">
-                <a class="nav-link text-light " href="#"><i class="fas fa-stroopwafel"></i> Cơ sở dữ liệu sql</a>
-              </li>
-
-              <li class="nav-item mt-2">
-                <a class="nav-link text-light " href="#"><i class="fas fa-stroopwafel"></i> Cơ sở dữ liệu sql</a>
-              </li>
-            </div>
-
-            <div class="mb-5 text-center">
-              <hr>
-              <h2 class="text-warning text-center">BemmTeam</h2>
-              <p class="text-center">PS16903 - Nguyễn Thành</p>
-            </div>
-          </ul>
-        </div>
-      </div>
-
-
-      <!-- END - SIDEBAR -->
-
-      <!-- START - BODY -->
-
-      <article  class="col  bg-primary bg-gradient d-flex flex-column justify-content-between ">
-          <div class="banner p-5 ">
-            <div class="body-title-warp row ">
-              <div class="body-title text-center mx-auto col-12">
-                <h1 class="text-light mx-5"><i class="fab fa-audible text-danger"></i> Bemm Study</h1>
-                <h6 class="text-light mx-5 fw-light fst-itali">Trang thi trắc nghiệm kiến thức đầu hàng Việt Nam</h6>
   
-              </div>
-  
-            </div>
-  
-  
-          </div>
-  
-  
-  
-  
-          <!-- body main -->
-          <div class="main-login mx-5 mt-3">
-            <div class="row  ">
-  
-              
-              <div class="col-6">
-                <div class="card shadow-lg ">
-                  <h2 class="text-dark text-center text-uppercase">Đăng nhập</h2>
-                  <p class="text-dark text-center">Xin chào! vui lòng nhập thông tin để đăng nhập</p>
-                  <form class="row g-3 needs-validation" novalidate>
-                    <div class="col-12 px-5">
-                      
-                      <div class="form-group">
-                        <div class="input-group flex-nowrap">
-                          <span class="input-group-text text-primary" id="addon-wrapping"><i class="fas fa-user"></i></span>
-                          <input type="text" class="form-control" placeholder="Nhập tên tài khoản" aria-label="Username" aria-describedby="addon-wrapping">
-                        </div>
-                      </div>
-                           
-                      <div class="form-group mt-4">
-                        <div class="input-group flex-nowrap">
-                          <span class="input-group-text text-primary" id="addon-wrapping"><i class="fas fa-key"></i></i></span>
-                          <input type="text" class="form-control" placeholder="Nhập mật khẩu" aria-label="password" aria-describedby="addon-wrapping">
-                        </div>
-                      </div>
-  
-                      <div class="form-group mt-4">
-                        <div class="mb-3 form-check">
-                          <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                          <label class="form-check-label text-dark" for="exampleCheck1">Nhớ mật khẩu</label>
-                        </div>
-                      </div>
-                      <div class="form-group">
-                        <button class="btn btn-primary col-12 fs-5 text-uppercase text-light">Đăng nhập</button>
-                      </div>
-                      <div class="form-group mt-2 float-end">
-                       <a class="my-5 text-info" href="./reg.html">Bạn chưa có tài khoản? Đăng ký</a>
-                      </div>
-                    </div>
-                    
-                  </form>
-                 
-                </div>
-              </div>
-              <div class="col-6">
-                <img src="./images/login.png" class="col-12" height="60%" style="position: relative; top: -20px;">
-              </div>
-            </div>
-           
-         
-          </div>
-          <footer class="footer bg-dark">
-            <div >
-              <div class="col-12 text-center pt-2">
-                <a class="mx-2 text-light" style="text-decoration: none;" href="">Giới thiệu</a>
-                <a class="mx-2 text-light" style="text-decoration: none;" href="">Liên hệ</a>
-                <a class="mx-2 text-light" style="text-decoration: none;" href="">Góp ý</a>
-                <a class="mx-2 text-light" style="text-decoration: none;" href="">Hỏi đáp</a>
-                <hr class="bg-light">
-              </div>
-              <div class="col-12 d-flex justify-content-between h-100">
-                <div class="brands mx-2 d-flex " style="position: relative; top: -8px;">
-                  <img src="./images/bee_512.png" width="27px" alt="">
-                  <span class="mx-2"> © 2022 BemmTeam - Nguyễn Thành, Inc</span>
-                </div>
-                <div class="brands mx-2 d-flex " style="position: relative; top: -8px;">
-                  <i class="fab fa-facebook-square mx-2 fs-4"></i>
-                  <i class="fab fa-youtube mx-2 fs-4"></i>
-                  <i class="fab fa-blogger mx-2 fs-4"></i>
-                  <i class="fab fa-twitter-square mx-2 fs-4"></i>
-                </div>
-              </div>
-            </div>
-        </footer>
+  <div  class="bg-primary bg-gradient h-100">
         
-          
-      </article>
+    <div class="banner p-5 ">
+      <div class="body-title-warp row ">
+        <div class="body-title text-center mx-auto col-12">
+          <h1 class="text-light mx-5"><i class="fab fa-audible text-danger"></i> Bemm Study</h1>
+          <h6 class="text-light mx-5 fw-light fst-itali">Trang thi trắc nghiệm kiến thức đầu hàng Việt Nam</h6>
+
+        </div>
+
+      </div>
+
+
+    </div>
+
+
+
+
+    <!-- body main -->
+    <div class="main-login mx-5 mt-3">
+      <div class="row  ">
+
+        
+        <div class="col-6">
+          <div class="card shadow-lg ">
+            <h2 class="text-dark text-center text-uppercase">Đăng nhập</h2>
+            <p class="text-dark text-center">Xin chào! vui lòng nhập thông tin để đăng nhập</p>
+            <form class="row g-3 needs-validation" novalidate>
+              <div class="col-12 px-5">
+                
+                <div class="form-group">
+                  <div class="input-group flex-nowrap">
+                    <span class="input-group-text text-primary" id="addon-wrapping"><i class="fas fa-user"></i></span>
+                    <input type="text" class="form-control" placeholder="Nhập tên tài khoản" aria-label="Username" aria-describedby="addon-wrapping">
+                  </div>
+                </div>
+                     
+                <div class="form-group mt-4">
+                  <div class="input-group flex-nowrap">
+                    <span class="input-group-text text-primary" id="addon-wrapping"><i class="fas fa-key"></i></i></span>
+                    <input type="text" class="form-control" placeholder="Nhập mật khẩu" aria-label="password" aria-describedby="addon-wrapping">
+                  </div>
+                </div>
+
+                <div class="form-group mt-4">
+                  <div class="mb-3 form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label text-dark" for="exampleCheck1">Nhớ mật khẩu</label>
+                  </div>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-primary col-12 fs-5 text-uppercase text-light">Đăng nhập</button>
+                </div>
+                <div class="form-group mt-2 float-end">
+                 <a style="cursor: pointer;" class="my-5 text-info" ng-click="toLink('reg.html')" >Bạn chưa có tài khoản? Đăng ký</a>
+                </div>
+              </div>
+              
+            </form>
+           
+          </div>
+        </div>
+        <div class="col-6">
+          <img src="./images/login.png" class="col-12" height="60%" style="position: relative; top: -20px;">
+        </div>
+      </div>
+     
    
-    
- 
-
-      <!-- END - BODY -->
-    </main>
-
-    <!-- START - FOOTER -->
- 
-    <!-- END - FOOTER -->
-
-
+    </div>
   </div>
 
 </body>
-
-</html>

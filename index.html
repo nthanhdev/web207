@@ -5,32 +5,29 @@
   <!-- Required meta tags -->
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/base.css">
+  <script src="./js/angular.min.js"></script>
   <script src="./js/bootstrap.bundle.js"></script>
   <script src="./js/bootstrap.min.js"></script>
-  <script src="./js/chart.js"></script>
   <script src="./js/base.js"></script>
-
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
     integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
     crossorigin="anonymous"></script>
-  <script src="./js/angular.min.js"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css" />
 
   <title>ASM WEB 2</title>
 </head>
 
-<body>
+<body ng-app="app">
 
-  <div class="app ">
+  <div class="app" ng-controller = "mainController">
     <!-- START - NAV -->
     <nav class="shadow fixed-top navbar navbar-light bg-light row">
         <div class="col-6 nav_item-logo d-flex align-items-center px-3">
           <button class="btn" data-bs-toggle="offcanvas" data-bs-target="sidebar"><i class="fas fa-list text-dark"></i></button>
-          <a href="#" class="navbar-brand fw-bold text-dark mx-4">
+          <a href="#" class="navbar-brand fw-bold text-dark mx-4" ng-click="toLink('index.html')">
             <img class="mb-1 " src="./images/bee_512.png" alt="Logo" width="30" height="24">
             BemmTeam
           </a>
@@ -42,8 +39,9 @@
          </div>
          <!-- item nav - action 2 -->
          <div class="col-6 nav_item-action d-flex align-items-center justify-content-end ">
-          <button type="button" class="btn text-dark hover-text">Đăng nhập</button>
-          <button type="button" class="btn text-dark hover-text">Đăng Ký</button>
+          <button type="button" class="btn text-dark hover-text" ng-click="toLink('login.html')"> Đăng nhập</button>
+        
+          <button type="button" class="btn text-dark hover-text"  ng-click="toLink('reg.html')"> Đăng Ký</button>
          </div>
     </nav>
     <!-- END - NAV -->
@@ -100,214 +98,19 @@
 
          <!-- START - BODY -->
         
-        <article class="col " data-bs-spy="scroll">
-          <div class="banner bg-primary bg-gradient p-5 " style=" height: 250px;">
-            <div class="body-title-warp row">
-              <div class="body-title text-center mx-auto col-6">
-                <h1 class="text-light mx-5"><i class="fab fa-audible text-danger"></i> Bemm Study</h1>
-                <h6 class="text-light mx-5 fw-light fst-itali">Trang thi trắc nghiệm kiến thức đầu hàng Việt Nam</h6>
-                <div class="card border-info shadow " >
-                  <div class="card-header  text-uppercase text-primary">Chào mừng bạn đến với chúng tôi</div>
-                  <div class="card-body">
-                    <div class="row g-0">
-                      <img src="./images/lession2.jpg" class="col-3" height="130px" alt="">
-                      <div class="col-8">
-                        <p class="text-dark ">Hệ thống các bài trắc nghiệm online về tin học văn phòng, tin học cơ bản, lập trình, quản trị hệ thống, chứng chỉ quốc tế giúp các bạn ôn luyện và thi các chứng chỉ về CNTT.</p>
-                        <div class="row">
-                          <div class="col-4 text-success">
-                            <i class="fab fa-hive"></i>
-                            Đa dạng 
-                          </div>
-                          <div class="col-4 text-success">
-                            <i class="fab fa-500px"></i>
-                            Ma trận câu hỏi
-                          </div>
-                          <div class="col-4 text-success">
-                            <i class="fas fa-check-double"></i>
-                            Đáp án chi tiết
-                          </div>
-                        </div>
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-              <div class="body-title text-center col-6">
-                <h1 class="text-light mx-5"> <img src="./images/bee_512.png" style="position: relative; top: -3px;" width="35"alt=""> FPT Polytechnic</h1>
-                <h6 class="text-light mx-5 fw-light fst-itali">Kho tàng kiến thức thời 2013 2014 vẫn chất lượng :v</h6>
-                <div class="card  border-info shadow " >
-                  <div class="card-header  text-uppercase text-primary">
-                    Hoạt động gần đây</div>
-                  <div class="card-body">
-                    <div class="row g-0">
-                      <img src="./images/lession1.jpg" class="col-3" height="130px" alt="">
-
-                      <div class="col-8">
-                         <ul class="px-2" style="list-style: none;">
-                          <li class="border border-success shadow-sm rounded my-2">
-                            <div class="row">
-                              <div class="col-8 px-3 text-start"><b>Nguyễn Thành</b> - 1 giây trước</div>
-                              <div class="col-4 text-left badge bg-success " style="position: relative; top: -6px;">Điểm hoàn thành: 10</div>
-                            </div>
-                            <div class="row text-start mx-2">
-                              <div class="col-12">Vừa kiểm tra xong môn yêu Diễm </div>
-                            </div>
-                           </li>
-                           
-                           <li class="border border-danger shadow-sm rounded my-2">
-                            <div class="row">
-                              <div class="col-8 px-3 text-start"><b>Kiều Diễm</b> - 10 giây trước</div>
-                              <div class="col-4 text-left badge bg-danger " style="position: relative; top: -6px;">Điểm hoàn thành: 1.5</div>
-                            </div>
-                            <div class="row text-start mx-2">
-                              <div class="col-12">Vừa kiểm tra xong tình yêu Thành</div>
-                            </div>
-                           </li>
-                         </ul>
-                        </ol>
-                      </div>
-                      
-                    </div>
-                  </div>
-                </div>
-              </div>
-            </div>
-            
-            
-          </div>
-
-
-
-
-          <!-- body main -->
-          <div class="main  mx-5">
-            <div class="row">
-              <div class="col-3 my-2 px-5">
-                <div class="card shadow sub border-1 border-secondary"   >
-                  <div class="card-body " style="background-image:url('https://source.unsplash.com/600x900/?tech,street'); height: 200px;">
-                    <p class="badge bg-primary sub-title text-light col-12">Kiểm thử và triển khai ứng dụng Android</p>
-                  </div>
-                  <div class="card-footer bg-light"> <button class="btn btn-success col-12">THI NGAY</button></div>
-                </div>
-                
-              </div>
-              
-              <div class="col-3 my-2 px-5">
-                <div class="card shadow sub border-1 border-secondary"   >
-                  <div class="card-body " style="background-image:url('https://source.unsplash.com/600x900/?tech,street'); height: 200px;">
-                    <p class="badge bg-primary sub-title text-light col-12">Kiểm thử và triển khai ứng dụng Android</p>
-                  </div>
-                  <div class="card-footer bg-light"> <button class="btn btn-success col-12">THI NGAY</button></div>
-                </div>
-                
-              </div>
-
-              <div class="col-3 my-2 px-5">
-                <div class="card shadow sub border-1 border-secondary"   >
-                  <div class="card-body " style="background-image:url('https://source.unsplash.com/600x900/?tech,street'); height: 200px;">
-                    <p class="badge bg-primary sub-title text-light col-12">Kiểm thử và triển khai ứng dụng Android</p>
-                  </div>
-                  <div class="card-footer bg-light"> <button class="btn btn-success col-12">THI NGAY</button></div>
-                </div>
-                
-              </div>
-
-              <div class="col-3 my-2 px-5">
-                <div class="card shadow sub border-1 border-secondary"   >
-                  <div class="card-body " style="background-image:url('https://source.unsplash.com/600x900/?tech,street'); height: 200px;">
-                    <p class="badge bg-primary sub-title text-light col-12">Kiểm thử và triển khai ứng dụng Android</p>
-                  </div>
-                  <div class="card-footer bg-light"> <button class="btn btn-success col-12">THI NGAY</button></div>
-                </div>
-                
-              </div>
-              <div class="col-3 my-2 px-5">
-                <div class="card shadow sub border-1 border-secondary"   >
-                  <div class="card-body " style="background-image:url('https://source.unsplash.com/600x900/?tech,street'); height: 200px;">
-                    <p class="badge bg-primary sub-title text-light col-12">Kiểm thử và triển khai ứng dụng Android</p>
-                  </div>
-                  <div class="card-footer bg-light"> <button class="btn btn-success col-12">THI NGAY</button></div>
-                </div>
-                
-              </div>
-              <div class="col-3 my-2 px-5">
-                <div class="card shadow sub border-1 border-secondary"   >
-                  <div class="card-body " style="background-image:url('https://source.unsplash.com/600x900/?tech,street'); height: 200px;">
-                    <p class="badge bg-primary sub-title text-light col-12">Kiểm thử và triển khai ứng dụng Android</p>
-                  </div>
-                  <div class="card-footer bg-light"> <button class="btn btn-success col-12">THI NGAY</button></div>
-                </div>
-                
-              </div>
-              <div class="col-3 my-2 px-5">
-                <div class="card shadow sub border-1 border-secondary"   >
-                  <div class="card-body " style="background-image:url('https://source.unsplash.com/600x900/?tech,street'); height: 200px;">
-                    <p class="badge bg-primary sub-title text-light col-12">Kiểm thử và triển khai ứng dụng Android</p>
-                  </div>
-                  <div class="card-footer bg-light"> <button class="btn btn-success col-12">THI NGAY</button></div>
-                </div>
-                
-              </div>
-              <div class="col-3 my-2 px-5">
-                <div class="card shadow sub border-1 border-secondary"   >
-                  <div class="card-body " style="background-image:url('https://source.unsplash.com/600x900/?tech,street'); height: 200px;">
-                    <p class="badge bg-primary sub-title text-light col-12">Kiểm thử và triển khai ứng dụng Android</p>
-                  </div>
-                  <div class="card-footer bg-light"> <button class="btn btn-success col-12">THI NGAY</button></div>
-                </div>
-                
-              </div>
-              <div class="col-3 my-2 px-5">
-                <div class="card shadow sub border-1 border-secondary"   >
-                  <div class="card-body " style="background-image:url('https://source.unsplash.com/600x900/?tech,street'); height: 200px;">
-                    <p class="badge bg-primary sub-title text-light col-12">Kiểm thử và triển khai ứng dụng Android</p>
-                  </div>
-                  <div class="card-footer bg-light"> <button class="btn btn-success col-12">THI NGAY</button></div>
-                </div>
-                
-              </div>
-              <div class="col-3 my-2 px-5">
-                <div class="card shadow sub border-1 border-secondary"   >
-                  <div class="card-body " style="background-image:url('https://source.unsplash.com/600x900/?tech,street'); height: 200px;">
-                    <p class="badge bg-primary sub-title text-light col-12">Kiểm thử và triển khai ứng dụng Android</p>
-                  </div>
-                  <div class="card-footer bg-light"> <button class="btn btn-success col-12">THI NGAY</button></div>
-                </div>
-                
-              </div>
-              <div class="col-3 my-2 px-5">
-                <div class="card shadow sub border-1 border-secondary"   >
-                  <div class="card-body " style="background-image:url('https://source.unsplash.com/600x900/?tech,street'); height: 200px;">
-                    <p class="badge bg-primary sub-title text-light col-12">Kiểm thử và triển khai ứng dụng Android</p>
-                  </div>
-                  <div class="card-footer bg-light"> <button class="btn btn-success col-12">THI NGAY</button></div>
-                </div>
-                
-              </div>
-              <div class="col-3 my-2 px-5">
-                <div class="card shadow sub border-1 border-secondary"   >
-                  <div class="card-body " style="background-image:url('https://source.unsplash.com/600x900/?tech,street'); height: 200px;">
-                    <p class="badge bg-primary sub-title text-light col-12">Kiểm thử và triển khai ứng dụng Android</p>
-                  </div>
-                  <div class="card-footer bg-light"> <button class="btn btn-success col-12">THI NGAY</button></div>
-                </div>
-                
-              </div>
-              
-            
-              
-            </div>
+        <article class="col d-flex justify-content-between flex-column" data-bs-spy="scroll">
+          
+        <!-- render body -->
+        <div class="main-body-render flex-grow-1"   ng-include = "urlLink">
+          
         </div>
-
         <footer class="col-12 footer bg-dark">
           <div class="">
             <div class="col-12 text-center pt-2">
-              <a class="mx-2 text-light" style="text-decoration: none;" href="">Giới thiệu</a>
-              <a class="mx-2 text-light" style="text-decoration: none;" href="">Liên hệ</a>
-              <a class="mx-2 text-light" style="text-decoration: none;" href="">Góp ý</a>
-              <a class="mx-2 text-light" style="text-decoration: none;" href="">Hỏi đáp</a>
+              <a class="mx-2 text-light" ng-click="toLink('contact.html')" style="text-decoration: none;" href="">Giới thiệu</a>
+              <a class="mx-2 text-light"  ng-click="toLink('contact.html')" style="text-decoration: none;" href="">Liên hệ</a>
+              <a class="mx-2 text-light"  ng-click="toLink('contact.html')" style="text-decoration: none;" href="">Góp ý</a>
+              <a class="mx-2 text-light"  ng-click="toLink('contact.html')" style="text-decoration: none;" href="">Hỏi đáp</a>
               <hr class="bg-light">
             </div>
             <div class="col-12 d-flex justify-content-between h-100">
@@ -332,10 +135,7 @@
       <!-- END - BODY -->
     </main>
 
-      <!-- START - FOOTER -->
-      <footer class="row footer">
-      </footer>
-      <!-- END - FOOTER -->
+ 
 
 
   </div>
