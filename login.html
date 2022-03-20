@@ -27,31 +27,37 @@
           <div class="card shadow-lg ">
             <h2 class="text-dark text-center text-uppercase">Đăng nhập</h2>
             <p class="text-dark text-center">Xin chào! vui lòng nhập thông tin để đăng nhập</p>
-            <form class="row g-3 needs-validation" novalidate>
+            <form class="row g-3 needs-validation" validate>
               <div class="col-12 px-5">
                 
                 <div class="form-group">
                   <div class="input-group flex-nowrap">
                     <span class="input-group-text text-primary" id="addon-wrapping"><i class="fas fa-user"></i></span>
-                    <input type="text" class="form-control" placeholder="Nhập tên tài khoản" aria-label="Username" aria-describedby="addon-wrapping">
+                    <input required ng-model="userLogin.user" type="text" class="form-control" placeholder="Nhập tên tài khoản" aria-label="Username" aria-describedby="addon-wrapping">
                   </div>
                 </div>
                      
                 <div class="form-group mt-4">
                   <div class="input-group flex-nowrap">
                     <span class="input-group-text text-primary" id="addon-wrapping"><i class="fas fa-key"></i></i></span>
-                    <input type="text" class="form-control" placeholder="Nhập mật khẩu" aria-label="password" aria-describedby="addon-wrapping">
+                    <input required ng-model="userLogin.pass" type="text" class="form-control" placeholder="Nhập mật khẩu" aria-label="password" aria-describedby="addon-wrapping">
                   </div>
                 </div>
 
                 <div class="form-group mt-4">
                   <div class="mb-3 form-check">
                     <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label text-dark" for="exampleCheck1">Nhớ mật khẩu</label>
+                    <label class="form-check-label text-dark" for="exampleCheck1">Nhớ mật khẩu </label>
                   </div>
                 </div>
                 <div class="form-group">
-                  <button class="btn btn-primary col-12 fs-5 text-uppercase text-light">Đăng nhập</button>
+                    <div class="alert alert-danger" ng-if="!userLogin.isSuccess">
+                      <i class="fas fa-times fs-5" style="position: relative; top: 2px"></i>
+                        Tên đăng nhập hoặc mật khẩu không đúng !
+                    </div>
+                </div>
+                <div class="form-group">
+                  <button class="btn btn-primary col-12 fs-5 text-uppercase text-light" ng-click = "login('teonv' , 'iloveyou')">Đăng nhập</button>
                 </div>
                 <div class="form-group mt-2 float-end">
                  <a style="cursor: pointer;" class="my-5 text-info" href="#signup" >Bạn chưa có tài khoản? Đăng ký</a>

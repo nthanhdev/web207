@@ -1,45 +1,18 @@
-
-
-var myApp = angular.module('app', ["ngRoute"]) ; 
-
-
-myApp.config(function($routeProvider , $locationProvider){
-   $locationProvider.hashPrefix(''); // add configuration
-    $routeProvider
-        .when("/home", {
-            templateUrl: "listsubjects.html"
-        })
-        .when("/signin", {
-            templateUrl: "login.html"
-        })
-        .when("/signup", {
-            templateUrl: "reg.html"
-        })
-        .when("/contact", {
-            templateUrl: "contact.html"
-        })
-        .when("/subject/:idsubject", {
-            templateUrl: "thi.html"
-        })
-        .when("/summary/:idsummary", {
-            templateUrl: "ketqua.html"
-        })
-        .when("/history/:idhistory", {
-            templateUrl: "history.html"
-        })
-        .otherwise({templateUrl: "listsubjects.html"})
-})
-
-myApp.controller("mainController" , function($scope , $rootScope) { 
-
-    $rootScope.urlLink = "Listsubjects.html"
-
-    $rootScope.toLink = function(url) { 
-        $rootScope.urlLink = url;
-    }
-
-});
-
-    
-
-
+(function () {
+  
+    // Fetch all the forms we want to apply custom Bootstrap validation styles to
+    var forms = document.querySelectorAll('.needs-validation')
+  
+    // Loop over them and prevent submission
+    Array.prototype.slice.call(forms)
+      .forEach(function (form) {
+        form.addEventListener('submit', function (event) {
+          if (!form.checkValidity()) {
+            event.preventDefault()
+            event.stopPropagation()
+          }
+  
+          form.classList.add('was-validated')
+        }, false)
+      })
+  })()

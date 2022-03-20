@@ -13,6 +13,7 @@
   <script src="./js/bootstrap.bundle.js"></script>
   <script src="./js/bootstrap.min.js"></script>
   <script src="./js/base.js"></script>
+  <script src="./js/app.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.10.2/dist/umd/popper.min.js"
     integrity="sha384-7+zCNj/IqJ95wo16oMtfsKbZ9ccEh31eOz1HGyDuCQ6wgnyJNSYdrPa03rtR1zdB"
     crossorigin="anonymous"></script>
@@ -39,10 +40,15 @@
           </div>
          </div>
          <!-- item nav - action 2 -->
-         <div class="col-6 nav_item-action d-flex align-items-center justify-content-end ">
+         <div class="col-6 nav_item-action d-flex align-items-center justify-content-end " ng-if="!isLogin">
           <a type="button" class="btn text-dark hover-text" href="#signin" > Đăng nhập </a>
         
           <a type="button" class="btn text-dark hover-text" href="#signup"> Đăng Ký</a>
+         </div>
+
+         <div class="col-6 nav_item-action d-flex align-items-center justify-content-end " ng-if="isLogin">
+          <a type="button" class="btn text-dark hover-text" href="#signin" > {{user.fullname}} </a>
+        
          </div>
     </nav>
     <!-- END - NAV -->
