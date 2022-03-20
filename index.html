@@ -9,6 +9,7 @@
   <link rel="stylesheet" href="./css/bootstrap.min.css">
   <link rel="stylesheet" href="./css/base.css">
   <script src="./js/angular.min.js"></script>
+  <script src="./js/angular.router.min.js"></script>
   <script src="./js/bootstrap.bundle.js"></script>
   <script src="./js/bootstrap.min.js"></script>
   <script src="./js/base.js"></script>
@@ -39,9 +40,9 @@
          </div>
          <!-- item nav - action 2 -->
          <div class="col-6 nav_item-action d-flex align-items-center justify-content-end ">
-          <button type="button" class="btn text-dark hover-text" ng-click="toLink('login.html')"> Đăng nhập</button>
+          <a type="button" class="btn text-dark hover-text" href="#signin" > Đăng nhập </a>
         
-          <button type="button" class="btn text-dark hover-text"  ng-click="toLink('reg.html')"> Đăng Ký</button>
+          <a type="button" class="btn text-dark hover-text" href="#signup"> Đăng Ký</a>
          </div>
     </nav>
     <!-- END - NAV -->
@@ -101,16 +102,16 @@
         <article class="col d-flex justify-content-between flex-column" data-bs-spy="scroll">
           
         <!-- render body -->
-        <div class="main-body-render flex-grow-1"   ng-include = "urlLink">
+        <div class="main-body-render flex-grow-1"   ng-view>
           
         </div>
         <footer class="col-12 footer bg-dark">
           <div class="">
             <div class="col-12 text-center pt-2">
-              <a class="mx-2 text-light" ng-click="toLink('contact.html')" style="text-decoration: none;" href="">Giới thiệu</a>
-              <a class="mx-2 text-light"  ng-click="toLink('contact.html')" style="text-decoration: none;" href="">Liên hệ</a>
-              <a class="mx-2 text-light"  ng-click="toLink('contact.html')" style="text-decoration: none;" href="">Góp ý</a>
-              <a class="mx-2 text-light"  ng-click="toLink('contact.html')" style="text-decoration: none;" href="">Hỏi đáp</a>
+              <a class="mx-2 text-light" href="#contact" style="text-decoration: none;" href="">Giới thiệu</a>
+              <a class="mx-2 text-light"  href="#contact" style="text-decoration: none;" href="">Liên hệ</a>
+              <a class="mx-2 text-light"  href="#contact" style="text-decoration: none;" href="">Góp ý</a>
+              <a class="mx-2 text-light"  href="#contact" style="text-decoration: none;" href="">Hỏi đáp</a>
               <hr class="bg-light">
             </div>
             <div class="col-12 d-flex justify-content-between h-100">
