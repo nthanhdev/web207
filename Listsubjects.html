@@ -47,10 +47,10 @@
                   <li class="border border-success shadow-sm rounded my-2">
                     <div class="row">
                       <div class="col-8 px-3 text-start"><b>Nguyễn Thành</b> - 1 giây trước</div>
-                      <div class="col-4 text-left badge bg-success " style="position: relative; top: -6px;">Điểm hoàn thành: 10</div>
+                      <div class="col-4 text-left badge bg-success" style="position: relative; top: -6px;">Điểm hoàn thành: 10</div>
                     </div>
                     <div class="row text-start mx-2">
-                      <div class="col-12">Vừa kiểm tra xong môn yêu Diễm </div>
+                      <div class="col-12">Vừa kiểm tra xong môn Điện toán đám mây </div>
                     </div>
                    </li>
                    
@@ -60,7 +60,7 @@
                       <div class="col-4 text-left badge bg-danger " style="position: relative; top: -6px;">Điểm hoàn thành: 1.5</div>
                     </div>
                     <div class="row text-start mx-2">
-                      <div class="col-12">Vừa kiểm tra xong tình yêu Thành</div>
+                      <div class="col-12">Vừa kiểm tra xong môn SQL Server</div>
                     </div>
                    </li>
                  </ul>
@@ -78,21 +78,21 @@
   
   
   
-  
   <!-- body main -->
   <div class="main  mx-5">
     <div class="row">
-      <div class="col-3 my-2 px-5">
+      <div class="col-3 my-2 px-5" ng-repeat="subject in subjects ">
         <div class="card shadow sub border-1 border-secondary"   >
-          <div class="card-body " style="background-image:url('https://source.unsplash.com/600x900/?tech,street'); height: 200px;">
-            <p class="badge bg-primary sub-title text-light col-12">Kiểm thử và triển khai ứng dụng Android</p>
+          <img class="card-body " src="./images/logos/{{subject.logo}} " style="height: 200px;">
+          <div class="row">
+            <p class="mx-1 badge bg-primary sub-title text-light col-12 title-subject">{{subject.name}}</p>
+
           </div>
-          <div class="card-footer bg-light"> <a class="btn btn-success col-12" href="#subject/idsubject">THI NGAY</a></div>
+          </img>
+          <div class="card-footer bg-light"> <a class="btn btn-success col-12" href="#subject/{{subject.id}}">THI NGAY</a></div>
         </div>
     </div>
    
-
-
 
   </div>
 </body>

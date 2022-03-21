@@ -42,7 +42,7 @@ namespace BemmEduApi
                 return "";
             }
         }
-        public List<T> GetDataDb<T> (string type)
+        public List<T> GetDataDb<T> ()
         {
           
              string json = getTypeRead(typeof(T));

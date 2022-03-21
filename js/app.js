@@ -7,6 +7,7 @@ myApp.config(function($routeProvider , $locationProvider){
    $locationProvider.hashPrefix(''); // add configuration
     $routeProvider
         .when("/home", {
+            controller: "subjectController",
             templateUrl: "listsubjects.html"
         })
         .when("/signin", {
@@ -21,21 +22,36 @@ myApp.config(function($routeProvider , $locationProvider){
             templateUrl: "contact.html"
         })
         .when("/subject/:idsubject", {
+
+            controller: "subjectController",
+
             templateUrl: "thi.html"
         })
         .when("/summary/:idsummary", {
+            controller: "subjectController",
+
             templateUrl: "ketqua.html"
         })
         .when("/history/:idhistory", {
+            controller: "subjectController",
+
             templateUrl: "history.html"
         })
         .when("/profile", {
             templateUrl: "profile.html"
         })
-        .otherwise({templateUrl: "listsubjects.html"})
+        .otherwise({
+            controller: "subjectController",
+            templateUrl: "listsubjects.html"
+        })
 })
 
 myApp.controller("mainController" , function($scope , $rootScope) { 
+    $scope.nav = true;
+    $scope.hideNav = function() {
+
+        $scope.nav = !$scope.nav;
+    }
     var userjson = sessionStorage.getItem("user");
     if(userjson != null){
         $rootScope.user = JSON.parse(userjson);
@@ -83,7 +99,7 @@ myApp.controller("accountController" , function($scope , $rootScope , $http) {
                         $rootScope.isLogin = false;
                     }
     
-            })
+            },   $scope.userLogin.isSuccess = false );
         }else location.href = '#home'
      
     }
@@ -91,5 +107,15 @@ myApp.controller("accountController" , function($scope , $rootScope , $http) {
 
 });
     
+myApp.controller("subjectController" , function($scope , $http){
+    $scope.ma = "cp mja"
+    $http.get("https://localhost:5001/Subject").then(function(response){
+        
+        $scope.subjects = response.data;
+        console.log(response.data);
+
+    })
+
+}) ;
 
 

@@ -23,7 +23,7 @@ namespace BemmEduApi.Controllers
         private List<Student> getStudents()
         {
 
-            List<Student> students = dbcontextFile.GetDataDb<Student>("students");
+            List<Student> students = dbcontextFile.GetDataDb<Student>();
             return students;
         }
         [HttpGet]

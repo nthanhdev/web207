@@ -29,8 +29,8 @@
     <!-- START - NAV -->
     <nav class="shadow fixed-top navbar navbar-light bg-light row">
         <div class="col-6 nav_item-logo d-flex align-items-center px-3">
-          <button class="btn" data-bs-toggle="offcanvas" data-bs-target="sidebar"><i class="fas fa-list text-dark"></i></button>
-          <a href="#" class="navbar-brand fw-bold text-dark mx-4" ng-click="toLink('index.html')">
+          <button  ng-click="hideNav()" class="btn" data-bs-toggle="offcanvas" data-bs-target="sidebar"><i class="fas fa-list text-dark"></i></button>
+          <a href="#home" class="navbar-brand fw-bold text-dark mx-4">
             <img class="mb-1 " src="./images/bee_512.png" alt="Logo" width="30" height="24">
             BemmTeam
           </a>
@@ -72,54 +72,35 @@
     </nav>
     <!-- END - NAV -->
 
-    <main class="color-body body row"  style="--bs-gutter-x: 0 ;height: 100vh;" >
+    <main class="color-body body row"  style="--bs-gutter-x: 0 ;height: 100vh;" ng-controller = "subjectController" >
      <!-- START - SIDEBAR -->
-        
-         <div class="col navfixed" >
+
+         <div class="col navfixed" ng-show="nav" >
           <div class="" >
-            <ul id="sidebar" class="shadow-lg nav bg-dark flex-column justify-content-between" >
-              <div>
-                <h5 class="text-primary text-center mt-2"><i class="fas fa-book"></i> Danh mục môn học</h5>
-              <hr>
-              
-              <li class="nav-item mt-2">
-                <a class="nav-link text-light active" href="#"><i class="fas fa-stroopwafel"></i> Cơ sở dữ liệu sql</a>
-    
-              </li>
-              <li class="nav-item mt-2">
-                <a class="nav-link text-light " href="#"><i class="fas fa-stroopwafel"></i> Cơ sở dữ liệu sql</a>
-              </li>
-              <li class="nav-item mt-2">
-                <a class="nav-link text-light " href="#"><i class="fas fa-stroopwafel"></i> Cơ sở dữ liệu sql</a>
-              </li>
-              <li class="nav-item mt-2">
-                <a class="nav-link text-light " href="#"><i class="fas fa-stroopwafel"></i> Cơ sở dữ liệu sql</a>
-              </li>
-              <li class="nav-item mt-2">
-                <a class="nav-link text-light " href="#"><i class="fas fa-stroopwafel"></i> Cơ sở dữ liệu sql</a>
-              </li>
-              <li class="nav-item mt-2">
-                <a class="nav-link text-light " href="#"><i class="fas fa-stroopwafel"></i> Cơ sở dữ liệu sql</a>
-              </li>
-              <li class="nav-item mt-2">
-                <a class="nav-link text-light " href="#"><i class="fas fa-stroopwafel"></i> Cơ sở dữ liệu sql</a>
-              </li>
-    
-              <li class="nav-item mt-2">
-                <a class="nav-link text-light " href="#"><i class="fas fa-stroopwafel"></i> Cơ sở dữ liệu sql</a>
-              </li>
+            <div id="sidebar" class="shadow-lg nav bg-dark " >
+              <div class="d-flex flex-column justify-content-start " style="max-height: calc(100vh - 56px);">
+                <div class="box-header">
+                  <h5 class="text-primary text-center mt-2"><i class="fas fa-book"></i> Danh mục môn học</h5>
+                  <hr>
+                </div>
+                <div class="box-subjects flex-grow-1" >
+                
+                <div class="nav-item mt-2" ng-repeat="subject in subjects">
+                  <a class="subject-item-header nav-link text-light " href="#"><i class="fas fa-stroopwafel"></i> {{subject.name}}</a>
+      
+                </div>
+               
+                </div>
+                <div class="text-center  "  >
+                <hr style="margin-top: 0px;">
+                  <h4 class="text-warning text-center col-12">BemmTeam</h4>
+                  <p class="text-center col-12">PS16903 - Nguyễn Thành</p>
+                </div>
               </div>
-              
-              <div class="mb-5 text-center">
-                <hr>
-                <h2 class="text-warning text-center">BemmTeam</h2>
-                <p class="text-center">PS16903 - Nguyễn Thành</p>
-              </div>
-            </ul>
+            </div>
           </div>
          </div>
          
-       
      <!-- END - SIDEBAR -->
 
          <!-- START - BODY -->
