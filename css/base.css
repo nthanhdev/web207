@@ -33,7 +33,7 @@
     
      background-repeat: no-repeat; 
      background-size:cover; 
-     height: 30%; 
+     height: 25%; 
      position: relative;
 }
 .navfixed{
@@ -93,7 +93,7 @@
     z-index: 2;
     margin-top: 0px;
 }
-
+#question-item-0:checked ~ .question-item,
 #question-item-1:checked ~ .question-item,
 #question-item-2:checked ~ .question-item,
 #question-item-3:checked ~ .question-item,
@@ -112,9 +112,7 @@
     overflow-y: scroll;
 }
 
-.visited{
 
-}
 .subject-item-header{
     position: relative;
 }
@@ -171,4 +169,19 @@
 
     }
 
+}
+
+.hover-bg:hover{
+
+    background-color: aquamarine !important;
+}
+
+
+.btn-qs:first-child{
+    color: var(--bs-warning);
+    background-color: var(--bs-dark) ;
+}
+.btn-qs:focus{
+    color: var(--bs-warning) !important;
+    background-color: var(--bs-dark) !important;
 }

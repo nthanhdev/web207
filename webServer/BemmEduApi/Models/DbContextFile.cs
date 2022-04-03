@@ -50,12 +50,18 @@ namespace BemmEduApi
              return ListData;
         }
 
+        public List<Quiz> GetQuizzes(string Id) {
+
+            string json = ReadFile($"db/Quizs/{Id}.js");
+            var ListData = JsonConvert.DeserializeObject<List<Quiz>>(json);
+            return ListData;
+        }
+        
+
         public async Task SaveDataDbAsync<T>(List<T> objects ) { 
             string path = "";
             switch(typeof(T).Name) {
-
                 case "Student" : path = "db/students.js" ; break;
-                
             }
             string text = JsonConvert.SerializeObject(objects);
             await File.WriteAllTextAsync(path , text) ;

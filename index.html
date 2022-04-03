@@ -72,7 +72,7 @@
     </nav>
     <!-- END - NAV -->
 
-    <main class="color-body body row"  style="--bs-gutter-x: 0 ;height: 100vh;" ng-controller = "subjectController" >
+    <main class="color-body body row"  style="--bs-gutter-x: 0 ; min-height: 100vh;" ng-controller = "subjectController" >
      <!-- START - SIDEBAR -->
 
          <div class="col navfixed" ng-show="nav" >
@@ -105,14 +105,14 @@
 
          <!-- START - BODY -->
         
-        <article class="col d-flex justify-content-between flex-column" data-bs-spy="scroll">
+        <article class="col d-flex flex-column justify-content-end" data-bs-spy="scroll">
           
         <!-- render body -->
         <div class="main-body-render flex-grow-1"   ng-view>
           
         </div>
-        <footer class="col-12 footer bg-dark">
-          <div class="">
+        <footer class="col-12 footer bg-dark mt-5">
+          <div >
             <div class="col-12 text-center pt-2">
               <a class="mx-2 text-light" href="#contact" style="text-decoration: none;" href="">Giới thiệu</a>
               <a class="mx-2 text-light"  href="#contact" style="text-decoration: none;" href="">Liên hệ</a>
