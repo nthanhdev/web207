@@ -64,22 +64,23 @@ namespace BemmEduApi.Controllers
 
         }
 
-        [HttpPut]
+        // [HttpPut]
 
-        public async Task<IActionResult> Edit(Student _student)
-        {
-            var ListStudents = getStudents();
-            var student = ListStudents.SingleOrDefault(x => x.username == _student.username);
-            if (student == null) return NotFound(new { message = "Không tìm thấy user" });
-            student.birthday = _student.birthday;
-            student.fullname = _student.fullname;
-            student.email = _student.email;
-            student.gender = _student.gender;
-            student.marks = _student.marks;
-            student.schoolfee = _student.schoolfee;
-            student.password = _student.password;
-            await dbcontextFile.SaveDataDbAsync<Student>(ListStudents);
-            return Ok(new { message = "Chỉnh sửa thành công", infoUser = student });
-        }
+        // public async Task<IActionResult> Edit(Student _student)
+        // {
+        //     var ListStudents = getStudents();
+        //     var student = ListStudents.SingleOrDefault(x => x.username == _student.username);
+        //     if (student == null) return NotFound(new { message = "Không tìm thấy user" });
+            
+        //     student.birthday = _student.birthday;
+        //     student.fullname = _student.fullname;
+        //     student.email = _student.email;
+        //     student.gender = _student.gender;
+        //     student.marks = _student.marks;
+        //     student.schoolfee = _student.schoolfee;
+        //     student.password = _student.password;
+        //     await dbcontextFile.SaveDataDbAsync<Student>(ListStudents);
+        //     return Ok(new { message = "Chỉnh sửa thành công", infoUser = student });
+        // }
     }
 }

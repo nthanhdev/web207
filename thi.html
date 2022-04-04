@@ -36,8 +36,8 @@
                 <hr>
                 <div class="list-question">
                   <div class="text-dark">
-                    <div ng-repeat="qs in Question.answers" class="form-check d-flex  justify-content-center  position-relative mt-2"  >
-                      <input ng-checked="Question.answer == qs.id" ng-click="checkQs(Question.id, qs.id)" class="form-check-input question-item-check position-absolute" type="radio" name="question-item" id="question-item-{{$index}}" >
+                    <div ng-repeat="qs in Question.answers" class="form-check d-flex  justify-content-center  position-relative mt-2 "  >
+                      <input ng-checked="Question.answer == qs.id" ng-click="checkQs(Question.id, qs.id)" class="form-check-input question-item-check position-absolute " type="radio" name="question-item" id="question-item-{{$index}}" >
 
                       <label class="fw-normal form-check-label fs-4 mx-2 w-100 card question-item  px-5"  for="question-item-{{$index}}">
                         
@@ -85,7 +85,7 @@
 
             </div>
             <div class="card-footer d-flex justify-content-center">
-              <a class="btn btn-danger col-8" href="#summary/idsummary">NỘP BÀI</a>
+                <a type="submit" ng-click="submit()" class="btn btn-danger col-8" >NỘP BÀI</a>
             </div>
           </div>
         </div>

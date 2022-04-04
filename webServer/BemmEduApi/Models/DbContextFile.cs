@@ -5,6 +5,7 @@ using Newtonsoft.Json;
 using BemmEduApi.Models;
 using System.Threading.Tasks;
 using System.Collections.Generic;
+using Microsoft.AspNetCore.Http;
 
 namespace BemmEduApi
 {
@@ -19,8 +20,20 @@ namespace BemmEduApi
             switch(T.Name){
                 case "Student" :  json = ReadFile("db/students.js"); break;
                 case "Subject" :  json = ReadFile("db/subjects.js"); break;
+                case "ResultQuiz" : json =  ReadFile("db/histories.js"); break;
             }
             return json;
+        }
+
+           private string getTypePath(Type T) { 
+
+            string path = "";
+            switch(T.Name){
+                case "Student" :  path = "db/students.js"; break;
+                case "Subject" :  path = "db/subjects.js"; break;
+                case "ResultQuiz" : path =  "db/histories.js"; break;
+            }
+            return path;
         }
         // 
         private string ReadFile(string path)
@@ -35,10 +48,10 @@ namespace BemmEduApi
                     return sr.ReadToEnd();
                 }
             }
-            catch (IOException e)
+            catch (IOException)
             {
          
-                Console.WriteLine(e.Message);
+             
                 return "";
             }
         }
@@ -58,13 +71,14 @@ namespace BemmEduApi
         }
         
 
-        public async Task SaveDataDbAsync<T>(List<T> objects ) { 
-            string path = "";
-            switch(typeof(T).Name) {
-                case "Student" : path = "db/students.js" ; break;
-            }
-            string text = JsonConvert.SerializeObject(objects);
+        public  async Task<bool> SaveDataDbAsync<T>(List<T> objects  ) { 
+            
+            string path = getTypePath(typeof(T));
+            string text = "";
+            text= JsonConvert.SerializeObject(objects);
             await File.WriteAllTextAsync(path , text) ;
+            return true;
         }
+
     }
 }

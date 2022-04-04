@@ -27,17 +27,18 @@
                 <img src="./images/finish.png" class="col-4"  alt="">
                 <div class="col-8 mt-1 mb-3">
                   <h3 class="text-primary text-center">BẠN ĐÃ ĐẠT ĐƯỢC SỐ ĐIỂM</h3>
-                  <h1 class="text-success text-center">8</h1>
+                  <h1 class="text-success text-center">{{result.mark}} </h1>
 
-                  <h6 class="text-dark  text-center text-uppercase">Quản trị cơ sở dữ liệu sql</h6>
+                  <h6 class="text-dark  text-center text-uppercase">{{result.name}} </h6>
                   <hr>
                   <div class="row d-flex justify-content-evenly">
-                    <div class="badge bg-dark fs-5 col-3">Tổng: 23 <i class="fab fa-audible"></i></div>
-                    <div class="badge bg-success fs-5 col-3 ">Đúng: 13  <i class="fas fa-check-circle"></i></div>
-                    <div class="badge bg-danger fs-5 col-3">Sai: 10 <i class="fas fa-times-circle"></i></div>
+                    <div class="badge bg-dark fs-5 col-3">Tổng: {{result.quiz.length}} <i class="fab fa-audible"></i></div>
+                    <div class="badge bg-success fs-5 col-3 ">Đúng: {{result.correct}}  <i class="fas fa-check-circle"></i></div>
+                    <div class="badge bg-danger fs-5 col-3">Sai: {{result.incorrect}} <i class="fas fa-times-circle"></i></div>
+
                   </div>
                   <hr>
-                  <a class="btn btn-warning col-12 text-dark text-uppercase" href="#history/idhistory">Xem đáp án chi tiết</a>
+                  <a class="btn btn-warning col-12 text-dark text-uppercase" href="#history/{{result.id}}">Xem đáp án chi tiết</a>
                 </div>
               </div>
           </div>

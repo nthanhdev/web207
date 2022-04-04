@@ -1,136 +1,50 @@
 <body>
-  <div class="banner-main bg-primary  p-5 " style="background-image: url(/images/Banner1-2.png);" >
-    <div class="body-title-warp row ">
- 
-
-      <div class="body-title text-center col-5 my-2  " style="position: absolute; right: 2px; bottom: -56px;">
-        <div class="fs-5  text-uppercase text-light badge bg-primary">
-          top 3 đạt điểm cao nhất</div>
-        <div class="card  border-info shadow " >
-         
-          <div class="card-body ">
-            <div class="row g-0">
-                <img src="./images/rank.png" height="130px" class="col-4" alt="">
-              <div class="col-8">
-                 <ul class="px-2" style="list-style: none; margin-bottom: 0px;">
-                    <li class="row mt-2 d-flex align-items-center">
-                      <div class="col-2">
-                        <img src="./images/gold.png" width="30px" alt="">
-                      </div>
-                      <div class="col-7 text-start">
-                        <h5 class="fw-bold">Nguyễn Thành</h5>
-                      </div>
-                      <div class="col-3">
-                        <div class="badge bg-success">9 Điểm</div>
-                      </div>
-                    </li>
-                    <hr class="m-1">
-                    <li class="row mt-2 d-flex align-items-center">
-                      <div class="col-2">
-                        <img src="./images/silver.png" width="30px" alt="">
-                      </div>
-                      <div class="col-7 text-start">
-                        <h5 class="fw-bold">Nguyễn Nhung</h5>
-                      </div>
-                      <div class="col-3">
-                        <div class="badge bg-success">8 Điểm</div>
-                      </div>
-                    </li>
-                    <hr class="m-1">
-                    <li class="row mt-2 d-flex align-items-center">
-                      <div class="col-2">
-                        <img src="./images/bronze.png" width="30px" alt="">
-                      </div>
-                      <div class="col-7 text-start">
-                        <h5 class="fw-bold">Nguyễn Hùng</h5>
-                      </div>
-                      <div class="col-3">
-                        <div class="badge bg-success">7 Điểm</div>
-                      </div>
-                    </li>
-                    <hr class="m-1">
-
-                 </ul>
-                </ol>
-              </div>
-              
-            </div>
-          </div>
-        </div>
-      </div>
+  <div class="bg-primary text-center  " style="height: 80px;"  >
+    <h1 class="text-light mx-5 pt-3"><i class="fab fa-audible text-danger"></i> Bemm Study</h1>
     </div>
     
     
   </div>
 
 
-
-
   <!-- body main -->
   <div class="main mx-3 mt-1 flex-grow-1 ">
-    <div class="row" >
+    <div class="row pb-5 mb-2" >
      
-        <div class="col-7 d-flex flex-column justify-content-between">
-          <div class="card flex-grow-1 shadow-lg">
-            <div class="card-header text-light bg-primary fs-6">
+        <div class="col-6 ">
+          <div class=" flex-grow-1 ">
+            <!-- <div class="text-light bg-primary fs-6">
               <div class="row">
                 <div class="col-10">
-                  <i class="fab fa-accusoft"></i> Quản trị cơ sở dữ liệu với sql
+                  <i class="fab fa-accusoft"></i> {{nameSubject}}
 
                 </div>
                 <div class="col-2">
                   <div class="badge bg-info float-end">1 Điểm</div>
                 </div>
               </div>
-            </div>
+            </div> -->
         
 
               <div class="card-body my-2 d-flex flex-column justify-content-evenly">
                 <div>
-                  <span class="fw-bold text-dark ">Câu 4: </span>
+                  <span class="fw-bold fs-3  text-primary ">Câu {{CurrentQs +1}}: </span>
                   <br>
-                  <label class="text-primary fs-4">Phát biểu nào dưới đây là đúng về quản lý dữ liệu?</label>
+                  <label class="text-dark fw-bolder fs-4">{{Question.text}}</label>
                 
                 </div>
                 <hr>
                 <div class="list-question">
                   <div class="text-dark">
-                    <div class="form-check d-flex  justify-content-center  position-relative mt-2 bg-danger" >
-                      <input class="form-check-input question-item-check position-absolute bg-danger  " checked type="radio" name="question-item" id="question-item-1" >
+                    <div ng-repeat="qs in Question.answers" ng-class="renderclassas(Question , qs.id)"  >
+                      <input ng-checked="Question.answer == qs.id" class="form-check-input question-item-check position-absolute " type="radio" name="question-item" id="question-item-{{$index}}" >
 
-                      <label class="form-check-label fs-4 mx-2 w-100 card question-item  px-5"  for="question-item-1">
+                      <label class="fw-normal form-check-label fs-4 mx-2 w-100 card question-item  px-5"  for="question-item-{{$index}}">
                         
-                        Thực hiện thao tác dữ liệu và truy vấn dữ liệu
+                        {{qs.text}}
                       </label>
                     </div>
 
-                    <div class="form-check d-flex justify-content-center  position-relative mt-2 bg-success" >
-                      <input class="form-check-input question-item-check position-absolute bg-success "  type="radio" name="question-item" id="question-item-2" >
-
-                      <label class="form-check-label fs-4 mx-2 w-100 card question-item  px-5"  for="question-item-2">
-                        
-                        Quản lý lưu trữ dữ liệu, thao tác dữ liệu và truy vấn dữ liệu
-                      </label>
-                    </div>
-                    
-
-                    <div class="form-check d-flex justify-content-center  position-relative mt-2" >
-                      <input class="form-check-input question-item-check position-absolute  " disabled type="radio" name="question-item" id="question-item-3" >
-
-                      <label class="form-check-label fs-4 mx-2 w-100 card question-item  px-5"  for="question-item-3">
-                        
-                        Quản lý lưu trữ dữ liệu, thêm, sửa, xóa dữ liệu
-                      </label>
-                    </div>
-
-                    <div class="form-check d-flex justify-content-center  position-relative mt-2" >
-                      <input class="form-check-input question-item-check position-absolute  " disabled type="radio" name="question-item" id="question-item-4" >
-
-                      <label class="form-check-label fs-4 mx-2 w-100 card question-item  px-5"  for="question-item-4">
-                        
-                        Cho phép lưu trữ dữ liệu và truy vấn dữ liệu
-                      </label>
-                    </div>
                    
                   </div>
                  
@@ -139,130 +53,42 @@
 
               </div>
               <div class=" control-question card-footer d-flex justify-content-evenly">
-                <button class="btn btn-dark col-3"><i class="fas fa-arrow-left"></i></button>
-                <button class="btn btn-dark col-3"><i class="fas fa-arrow-right"></i></button>
+                <button  ng-click="BackQs(Question.id)" class="btn btn-dark col-3"><i class="fas fa-arrow-left"></i></button>
+                <button ng-click="NextQs(Question.id)" class="btn btn-dark col-3"><i class="fas fa-arrow-right"></i></button>
 
               </div>
           </div>
         
         </div>
-        <div class="col-5 mt-5 d-flex justify-content-between">
-          <div class="card shadow-sm ">
+        <div class="col-6  ">
+          <div class="card shadow-sm mb-5">
             <div class="card-header bg-dark text-light ">
               <div class="row">
                 <div class="col-10">
                  
                   
-                      <i class="fab fa-accusoft"></i> Thi môn: Quản trị cơ sở dữ liệu với sql
+                      <i class="fab fa-accusoft"></i> {{result.name}}  <span class="ml-3 badge border-dark text-light border bg-danger">Sai</span> - <span class="badge bg-success">Đúng</span> - <span class="badge bg-light border border-success text-dark">Chưa làm</span>
                  
                   
                   
                 </div>
                 <div class="col-2 text-end text-warning">
-                  <i class="fas fa-clock"></i> 58:09
+                  <i class="fas fa-clock"></i> {{time | date:'mm:ss'}}
                 </div>
               </div>
             </div>
-            <div class="card-body row flex-grow-1" style="padding: 10px;">
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">01</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">02</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">03</button></div>
-                    <div class="col-1 my-1"><button class="bg-danger rounded text-light">04</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">05</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">06</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">07</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">08</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">09</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">10</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">11</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">12</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">13</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">14</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">15</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">16</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">17</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">18</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">19</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">20</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">21</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">22</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">23</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">24</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">25</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">26</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">27</button></div>
-                    <div class="col-1 my-1"><button class="bg-danger rounded text-light">28</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">29</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">30</button></div>
-                    <div class="col-1 my-1"><button class="bg-danger rounded text-light">31</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">32</button></div>
-                    <div class="col-1 my-1"><button class="bg-danger rounded text-light">33</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">34</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">35</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">36</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">37</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">38</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">39</button></div>
-                    <div class="col-1 my-1"><button class="bg-danger rounded text-light">40</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">41</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">42</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">43</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">44</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">45</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">46</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">47</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">48</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">49</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">50</button></div>
-                    <div class="col-1 my-1"><button class="bg-danger rounded text-light">40</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">41</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">42</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">43</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">44</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">45</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">46</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">47</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">48</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">49</button></div>
-                    <div class="col-1 my-1"><button class="bg-danger rounded text-light">50</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">50</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">40</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">41</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">42</button></div>
-                    <div class="col-1 my-1"><button class="bg-danger rounded text-light">43</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">44</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">45</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">46</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">47</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">48</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">49</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">50</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">50</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">40</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">41</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">42</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">43</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">44</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">45</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">46</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">47</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">48</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">49</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">50</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">42</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">43</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">44</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">45</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">46</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">47</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">48</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">49</button></div>
-                    <div class="col-1 my-1"><button class="bg-success rounded text-light">50</button></div>
-                    
-                    
+            <div class="card-body row text-center d-flex justify-content-between "  >
+              <div class="progress p-0">
+                <div class="progress-bar progress-bar-striped bg-danger" role="progressbar" ng-style="style"aria-valuenow="{{PercentTime}}" aria-valuemin="0" aria-valuemax="100"></div>
+              </div>
+              <span>
+
+              </span>
+               <button ng-repeat="m in subject" id="qs{{m.id}}" style="min-width: 45px;" ng-click="Qs($index)" ng-class="renderclassQS(m)">{{$index < 9 ? "0" + ($index + 1) : ($index + 1)}}</button>
+
             </div>
             <div class="card-footer d-flex justify-content-center">
-              <a class="btn btn-dark col-8" href="#summary/idsummary">Làm lại bài thi</a>
+                <!-- <a type="submit" ng-click="submit()" class="btn btn-danger col-8" >NỘP BÀI</a> -->
             </div>
           </div>
         </div>
