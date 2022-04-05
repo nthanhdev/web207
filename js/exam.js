@@ -1,5 +1,5 @@
 
-myApp.controller("examController" , function($scope , $http , $routeParams , $interval )  {
+myApp.controller("examController" , function($scope , $http , $routeParams , $interval , $rootScope )  {
 
     var Minutes = 5;
     var Seconds = 0;
@@ -88,7 +88,7 @@ myApp.controller("examController" , function($scope , $http , $routeParams , $in
 
     $scope.submit = function(){
 
-       $http.post("https://localhost:5001/Exam?Name=" +$scope.nameSubject  , $scope.subject).then(function(response){
+       $http.post(`https://localhost:5001/Exam?Name=${$scope.nameSubject}&username=${$rootScope.user.username}` , $scope.subject).then(function(response){
 
             $scope.result = response.data;
             location.href="#summary/" + $scope.result.id;

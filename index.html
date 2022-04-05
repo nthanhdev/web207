@@ -41,7 +41,7 @@
           </a>
           
           <div class="input-group input-search mx-2">
-            <input type="text" class="form-control" placeholder="Nhập môn cần tìm" aria-label="Recipient's username" \>
+            <input ng-model="search" type="text" class="form-control" placeholder="Nhập môn cần tìm" aria-label="Recipient's username" \>
             <button class="btn btn-secondary" type="button" ><i class="fas fa-search"></i></button>
           </div>
          </div>
@@ -52,26 +52,24 @@
           <a type="button" class="btn text-dark hover-text" href="#signup"> Đăng Ký</a>
          </div>
 
-         <div class="col-6 nav_item-action d-flex align-items-center justify-content-end " ng-if="isLogin">
+         <div class="col-6 nav_item-action d-flex align-items-center justify-content-end  text-end px-5" ng-if="isLogin">
             
-            <div class="row">
-              <div class="col-3">
-                <img src="./images/facelogo.png" height="35" width="35" alt="">
+              <div >
+                <img src="./images/facelogo.png" class="position-relative mx-2" style="top:6px" height="25" width="25" alt="">
               </div>
-              <div class="col-9">
+              <div class="">
                <div class="btn-group">
                 <a type="button" class="btn-user text text-dark hover-text " data-bs-toggle="dropdown" aria-expanded="false" href="#signin" > {{user.fullname}} <i class="fas fa-caret-down"></i></a>
            
                 <ul class="dropdown-menu  shadow-lg text-light mt-3 mx-3" style="position: absolute; left: -55px;
                 top: 28px;">
                   <li><a class="dropdown-item" href="#profile">Thông tin tài khoản</a></li>
-                  <li><a class="dropdown-item" href="#">Lịch sử làm bài</a></li>
+                  <li><a class="dropdown-item" href="#listHistory/{{user.username}}">Lịch sử làm bài</a></li>
                   <li><hr class="dropdown-divider"></li>
                   <li><button class="dropdown-item text-danger" ng-click="logout()">Đăng xuất</button></li>
                 </ul>
               </div>
               </div>
-            </div>
 
          </div>
     </nav>
@@ -91,7 +89,7 @@
                 <div class="box-subjects flex-grow-1" >
                 
                 <div class="nav-item mt-2" ng-repeat="subject in subjects">
-                  <a class="subject-item-header nav-link text-light " href="#"><i class="fas fa-stroopwafel"></i> {{subject.name}}</a>
+                  <a class="subject-item-header nav-link text-light " href="#subject/{{subject.id}}/{{subject.name}}"><i class="fas fa-stroopwafel"></i> {{subject.name}}</a>
       
                 </div>
                

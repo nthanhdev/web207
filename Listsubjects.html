@@ -81,7 +81,7 @@
   <!-- body main -->
   <div class="main  mx-5">
     <div class="row">
-      <div class="col-3 my-2 px-5" ng-repeat="subject in subjects ">
+      <div class="col-3 my-2 px-5" ng-repeat="subject in subjects | filter:{'name' : search} ">
         <div class="card shadow sub border-1 border-secondary"   >
           <img class="card-body " src="./images/logos/{{subject.logo}} " style="height: 200px;">
           <div class="row">

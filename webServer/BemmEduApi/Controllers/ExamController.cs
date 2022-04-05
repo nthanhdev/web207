@@ -30,7 +30,7 @@ namespace BemmEduApi.Controllers
 
         [HttpPost, DisableRequestSizeLimit]
 
-        public  async Task<JsonResult>  submitSubject(List<Quiz> subjects , string Name) {
+        public  async Task<JsonResult>  submitSubject(List<Quiz> subjects , string Name , string  username ) {
 
 
                 int correct = 0 ;
@@ -56,8 +56,9 @@ namespace BemmEduApi.Controllers
                 resultQuizzes.Message = mark <5 ? "Không đạt" : "Đạt";
                 resultQuizzes.Time = System.DateTime.Now;
                 resultQuizzes.Name = Name;
+                resultQuizzes.username = username;
                 histories.Add(resultQuizzes);
-
+                Console.WriteLine(username);
 
                  await context.SaveDataDbAsync<ResultQuiz>(histories) ;
 
@@ -72,9 +73,18 @@ namespace BemmEduApi.Controllers
 
             var list = getHistories();
             var History = list.SingleOrDefault(x=> x.Id == id);
+           
             return Ok(History);
         }
 
+        
+        [HttpGet("GetHistorybyUser")]
+        public IActionResult GetHistorybyUser(string username){
+
+            var list = getHistories();
+            var History = list.Select(x=> x).Where(x=> x.username == username);
+            return Ok(History);
+        }
         private List<ResultQuiz> getHistories()
         {
 

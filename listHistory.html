@@ -1,0 +1,61 @@
+<body>
+  
+  <div class="banner-main bg-primary  p-5 "  >
+    <div class="body-title-warp row ">
+        <img src="./images/ketqua.gif" alt="" class="img-profile">
+
+     
+    </div>
+    
+    
+  </div>
+
+
+
+
+  <!-- body main -->
+  <div class="main mx-3 mt-1 flex-grow-1 ">
+    <div class="row container-fluid">
+
+        <div class="col-7">
+            <div class="card text-left mt-5">
+              <img class="card-img-top" src="holder.js/100px180/" alt="">
+              <h4 class="card-header bg-dark text-light"><i class="fa fa-history" aria-hidden="true"></i> Lịch sử làm bài: <span class="text-priamry">{{user.fullname}}</span></h4>
+              <div class="card-body" style="max-height:500px; overflow-y: auto; height:500px">
+                  <div class="box border border-dark p-1 rounded row mt-4" ng-repeat="h in listHistory | orderBy:'-time'">
+                      <div class="badge bg-primary p-3 shadow-lg col-1 text-center fs-2">{{h.mark}}</div>
+                      <div class="col-11">
+                        <div class="row container-fluid p-0">
+                            <div class="col-6">
+                                <h5 class="text-uppercase fw-bold text-dark">{{h.name}}</h5>
+                                <label for="">Thời gian thi: {{h.time | date : ' dd / MM / yyyy - hh:mm:ss'}}</label>
+                            </div>
+                            <div class="col-6">
+                                <div class="row d-flex justify-content-evenly">
+                                    <div class="badge bg-dark fs-6 col-4 ">Tổng: {{h.quiz.length}} <i class="fab fa-audible"></i></div>
+                                    <div class="badge bg-success fs-6 col-4  ">Đúng: {{h.correct}}  <i class="fas fa-check-circle"></i></div>
+                                    <div class="badge bg-danger fs-6 col-3 ">Sai: {{h.incorrect}} <i class="fas fa-times-circle"></i></div>
+                                  <a href="#history/{{h.id}}" class="btn btn-secondary btn-sm col-12 my-1 text-uppercase text-light">Xem đáp án chi tiết</a>
+
+                                  </div>
+                            </div>
+                        </div>
+                      </div>
+                  </div>
+                  
+               
+                  
+
+                  
+                  <hr>
+                
+              </div>
+            </div>
+        </div>
+
+        <img src="./images/history.png" class="col-5 mt-2" height="600px" alt="">
+   </div>
+      
+</div>
+</div>
+</body>

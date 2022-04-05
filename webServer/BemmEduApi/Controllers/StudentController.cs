@@ -64,23 +64,38 @@ namespace BemmEduApi.Controllers
 
         }
 
-        // [HttpPut]
+        [HttpPost("signup")]
+        public async Task<IActionResult> signup(Student account)
+        {
 
-        // public async Task<IActionResult> Edit(Student _student)
-        // {
-        //     var ListStudents = getStudents();
-        //     var student = ListStudents.SingleOrDefault(x => x.username == _student.username);
-        //     if (student == null) return NotFound(new { message = "Không tìm thấy user" });
-            
-        //     student.birthday = _student.birthday;
-        //     student.fullname = _student.fullname;
-        //     student.email = _student.email;
-        //     student.gender = _student.gender;
-        //     student.marks = _student.marks;
-        //     student.schoolfee = _student.schoolfee;
-        //     student.password = _student.password;
-        //     await dbcontextFile.SaveDataDbAsync<Student>(ListStudents);
-        //     return Ok(new { message = "Chỉnh sửa thành công", infoUser = student });
-        // }
+            try
+            {
+                var list = getStudents();
+                list.Add(account);
+                await dbcontextFile.SaveDataDbAsync<Student>(list);
+                return Ok(new { isSuccess = true, message = "Đăng ký tài khoản thành công !" });
+            }catch{
+                 return Ok(new { isSuccess = false, message = "Không đăng ký được!" });
+
+            }
+
+        }
+
+        [HttpPut]
+
+        public async Task<IActionResult> Edit(Student _student)
+        {
+            var ListStudents = getStudents();
+            var student = ListStudents.SingleOrDefault(x => x.username == _student.username);
+            if (student == null) return NotFound(new { message = "Không tìm thấy user", isSuccess = false });
+            student.birthday = _student.birthday;
+            student.fullname = _student.fullname;
+            student.email = _student.email;
+            student.gender = _student.gender;
+            student.marks = _student.marks;
+            student.schoolfee = _student.schoolfee;
+            await dbcontextFile.SaveDataDbAsync<Student>(ListStudents);
+            return Ok(new { message = "Chỉnh sửa thành công", isSuccess = true, infoUser = _student });
+        }
     }
 }

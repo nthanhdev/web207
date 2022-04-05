@@ -32,6 +32,8 @@ namespace BemmEduApi
                 case "Student" :  path = "db/students.js"; break;
                 case "Subject" :  path = "db/subjects.js"; break;
                 case "ResultQuiz" : path =  "db/histories.js"; break;
+                case "historiesQuiz" : path =  "db/histories.js"; break;
+
             }
             return path;
         }

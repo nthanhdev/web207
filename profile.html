@@ -14,8 +14,6 @@
   <!-- body main -->
   <div class="main mx-3 mt-1 flex-grow-1 ">
     <div class="row" >
-     
-     
       <div class="col-12">
         <div class="card ">
           <div class="card-header bg-success text-center text-light">
@@ -26,21 +24,14 @@
               <div class="col-11">
                 
                <div class="row mt-2">
-                <div class="form-group col-6">
-                  <label class="form-label">Họ của bạn</label>
+                <div class="form-group col-12">
+                  <label class="form-label">Họ và tên của bạn</label>
                   <div class="input-group flex-nowrap">
                     <span class="input-group-text text-primary"><i class="fas fa-align-left"></i></span>
                     <input ng-model="user.fullname" type="text" class="form-control" placeholder="Nhập họ " aria-label="Username" aria-describedby="addon-wrapping">
                   </div>
                 </div>
-                <div class="form-group col-6">
-                  <label class="form-label">Tên của bạn</label>
-
-                  <div class="input-group flex-nowrap">
-                    <span class="input-group-text text-primary"><i class="fas fa-align-right"></i></span>
-                    <input ng-model="user.fullname" type="text" class="form-control" placeholder="Nhập tên " aria-label="Username" aria-describedby="addon-wrapping">
-                  </div>
-                </div>
+              
                </div>
                <div class="row mt-2">
                 <label class="form-label">Username</label>
@@ -48,7 +39,7 @@
                 <div class="form-group col-12">
                   <div class="input-group flex-nowrap">
                     <span class="input-group-text text-primary"><i class="fas fa-user"></i></span>
-                    <input ng-model="user.username" type="text" class="form-control" placeholder="Nhập tên tài khoản" aria-label="Username" aria-describedby="addon-wrapping">
+                    <input disabled ng-model="user.username" type="text" class="form-control" placeholder="Nhập tên tài khoản" aria-label="Username" aria-describedby="addon-wrapping">
                   </div>
                 </div>
             
@@ -72,7 +63,7 @@
                     <div class="form-group col-12">
                       <div class="input-group flex-nowrap">
                         <span class="input-group-text text-primary"><i class="fas fa-calendar-alt"></i></i></span>
-                        <input ng-model="user.birthday" type="date" class="form-control" placeholder="Nhập tên tài khoản" aria-label="Username" aria-describedby="addon-wrapping">
+                        <input ng-model="user.birthday" type="date" class="form-control" placeholder="Nhập tên tài khoản" value="{{user.birthday | date:'yyyy-MM-dd' }}" >
                       </div>
                     </div>
                   </div>
@@ -82,10 +73,10 @@
                     <div class="form-group input-group col-12">
                       <span class="input-group-text text-primary"><i class="fas fa-venus-mars"></i></i></i></span>
 
-                      <select ng-model="user.gendel" class="form-select" aria-label="Default select example">
-                        <option value="1">Nam</option>
-                        <option value="2">Nữ</option>
+                      <select ng-model="user.gender"  class="form-select" >
+                        <option ng-repeat="u in gender" value="{{u.bool}}">{{u.text}} </option>
                       </select>
+
                     </div>
                   </div>
                </div>
@@ -94,7 +85,7 @@
 
                
                 <div class="form-group">
-                  <button class="btn btn-primary col-3 mt-3 fs-5 text-uppercase text-light">Cập nhật</button>
+                  <button ng-click="editUser()" class="btn btn-primary col-3 mt-3 fs-5 text-uppercase text-light">Cập nhật</button>
                 </div>
              
               </div>

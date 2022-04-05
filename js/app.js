@@ -36,7 +36,13 @@ myApp.config(function($routeProvider , $locationProvider){
              controller: "historyController",
              templateUrl: "history.html"
          })
+         .when("/listHistory/:iduser", {
+            controller: "listhistoryController",
+            templateUrl: "listHistory.html"
+        })
          .when("/profile", {
+            controller: "profileController",
+
              templateUrl: "profile.html"
          })
          .otherwise({
@@ -57,18 +63,39 @@ myApp.controller("mainController" , function($scope , $rootScope) {
         $rootScope.isLogin = true;
     }else 
         $rootScope.isLogin = false;
-
-    
         $scope.logout = function() { 
             sessionStorage.clear();
             $rootScope.isLogin = false;
-
             location.href = '#signin'
-            
         }
 });
 
+myApp.controller("profileController", function($scope,$http ,$rootScope){
+    $scope.gender = [{bool : true , text : "Nam"} ,{bool : false , text : "Nữ"} ]
 
+    var userjson = sessionStorage.getItem("user");
+    if(userjson != null){
+        $scope.user = angular.copy(JSON.parse(userjson));
+
+    }
+
+    $scope.editUser = function(){
+        $scope.user.gender = ($scope.user.gender == 'true' ) ? true : false;
+
+        $http.put("https://localhost:5001/api/Student", $scope.user).then(function(r){
+            if(r.data.isSuccess){
+                $scope.message = r.data.message; 
+                $rootScope.user = r.data.infoUser;
+                $rootScope.user.gender = $rootScope.user.gender.toString();
+           
+                sessionStorage.setItem("user" , JSON.stringify($rootScope.user));
+                $scope.user =  $rootScope.user ;
+
+            }
+        })
+        
+    }
+})
 
 myApp.controller("accountController" , function($scope , $rootScope , $http) { 
 
@@ -76,7 +103,6 @@ myApp.controller("accountController" , function($scope , $rootScope , $http) {
         location.href = '#home'
     }
 
-    
     $scope.userLogin = {"user" : "", pass: "", isSuccess: true};
     $scope.login = function() { 
         
@@ -90,15 +116,15 @@ myApp.controller("accountController" , function($scope , $rootScope , $http) {
                         $scope.userLogin.isSuccess = true;
                         $rootScope.isLogin = true;
                          $rootScope.user = user.infoUser;
-                        
-                        location.href = '#home'
-                        sessionStorage.setItem("user" , JSON.stringify(user.infoUser));
+                         $rootScope.user.gender = $rootScope.user.gender.toString();
+                         sessionStorage.setItem("user" , JSON.stringify(user.infoUser));
+                         location.href = '#home'
                     }else { 
                         $scope.userLogin.isSuccess = false; 
-                        $rootScope.isLogin = false;
+                        $rootScope.isLogin = false;   
                     }
     
-            },   $scope.userLogin.isSuccess = false );
+            });
         }else location.href = '#home'
      
     }
@@ -113,7 +139,10 @@ myApp.controller("subjectController" , function($scope , $http){
 
     })
 
+    $scope.search;
+
 }) ;
+
 
 
 // window.onbeforeunload = function() {

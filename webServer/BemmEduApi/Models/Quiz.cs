@@ -24,7 +24,8 @@ namespace BemmEduApi.Models {
     }
 
     public class ResultQuiz { 
-
+        
+        public string username  {get;set;}
         public Guid Id {get;set;}
         public string Message {get;set;}
         
