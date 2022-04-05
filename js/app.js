@@ -16,6 +16,7 @@ myApp.config(function($routeProvider , $locationProvider){
              templateUrl: "login.html"
          })
          .when("/signup", {
+            controller: "accountController",
              templateUrl: "reg.html"
          })
          .when("/contact", {
@@ -57,6 +58,7 @@ myApp.controller("mainController" , function($scope , $rootScope) {
 
         $scope.nav = !$scope.nav;
     }
+ 
     var userjson = sessionStorage.getItem("user");
     if(userjson != null){
         $rootScope.user = JSON.parse(userjson);
@@ -68,6 +70,8 @@ myApp.controller("mainController" , function($scope , $rootScope) {
             $rootScope.isLogin = false;
             location.href = '#signin'
         }
+
+
 });
 
 myApp.controller("profileController", function($scope,$http ,$rootScope){
@@ -93,6 +97,7 @@ myApp.controller("profileController", function($scope,$http ,$rootScope){
 
             }
         })
+        alert( $scope.message)
         
     }
 })
@@ -128,6 +133,24 @@ myApp.controller("accountController" , function($scope , $rootScope , $http) {
         }else location.href = '#home'
      
     }
+    $scope.userreg = {
+        "username": "",
+        "password": "",
+        "fullname": "",
+        "email": "",
+        "gender": true,
+        "birthday": "   ",
+        "schoolfee": 0,
+        "marks": 0
+      }
+    $scope.signup = function(){
+        $scope.userreg.gender = $scope.userreg.gender=="true" ? true : false
+        
+          $http.post("https://localhost:5001/api/Student/signup" , $scope.userreg).then(function(r){
+
+                alert(r.data.message)
+          })
+    }
 
 
 });
@@ -137,6 +160,10 @@ myApp.controller("subjectController" , function($scope , $http){
         
         $scope.subjects = response.data;
 
+    })
+
+    $http.get(`https://localhost:5001/Exam/GetHistorys`).then(function(r){
+        $scope.listHistory = r.data;
     })
 
     $scope.search;

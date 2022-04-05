@@ -85,11 +85,25 @@ namespace BemmEduApi.Controllers
             var History = list.Select(x=> x).Where(x=> x.username == username);
             return Ok(History);
         }
+
+        [HttpGet("GetHistorys")]
+        public IActionResult GetHistorys(){
+
+            var list = from x in getHistories() select new {
+
+                    name = x.Name,
+                    time = x.Time,
+                    username = x.username,
+                    mark = x.Mark
+            };
+          
+            return Ok(list);
+        }
+
         private List<ResultQuiz> getHistories()
         {
 
             var list = context.GetDataDb<ResultQuiz>();
-            System.Console.WriteLine(list.Count);
             return list;
         }
 

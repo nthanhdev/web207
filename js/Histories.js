@@ -90,7 +90,6 @@ myApp.controller("listhistoryController" , function($scope , $http , $rootScope)
     $http.get(`https://localhost:5001/Exam/GetHistorybyUser?username=${$rootScope.user.username}`).then(function(r){
 
         $scope.listHistory = r.data;
-        console.log(r.data)
     })
 
 })
